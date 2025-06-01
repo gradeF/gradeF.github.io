@@ -9,7 +9,6 @@
 - **툴/엔진**: Unity3D, WebRTC, Photon, Windows API  
 - **플랫폼**: PC, Android, HoloLens 2  
 - **협업 도구**: Git, Jira, Notion  
-- **개발 방식**: Agile
 
 ---
 
