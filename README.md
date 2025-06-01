@@ -1,12 +1,5 @@
-
----
-layout: default
-title: 홍길동 이력서
----
-
-# 홍길동  
-📧 honggildong@example.com | 📱 010-1234-5678  
-🔗 [GitHub](https://github.com/yourgithub) | [YouTube 영상 포트폴리오](https://youtu.be/gUf8SdJBZFc)
+📧 isuhyeon923@gmail.com 
+🔗 [GitHub](https://github.com/gradeF) | [YouTube 영상 포트폴리오](https://youtu.be/gUf8SdJBZFc)
 
 ---
 
