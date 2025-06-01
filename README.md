@@ -44,7 +44,3 @@
 - [논문 보기](https://www.earticle.net/Article/A394127)
 
 ---
-
-## ✅ 기타
-
-- 관심 분야: 차량용 UI 시스템, HMI, 클러스터 디스플레이 UX  
