@@ -1,14 +1,185 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홍길동 | 이력서</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .resume-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        header {
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+            color: #3498db;
+            font-weight: 500;
+        }
+        .contact-info {
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #555;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .job {
+            margin-bottom: 20px;
+        }
+        .job h3 {
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+        .job .date {
+            float: right;
+            font-style: italic;
+            color: #777;
+        }
+        .job p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .job ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .skills-list li {
+            background-color: #eaf4fc;
+            color: #3498db;
+            padding: 5px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
-  <main class="container">
-    {{ content }}
-  </main>
+
+    <div class="resume-container">
+        <!-- ========== 헤더: 이름, 직책, 연락처 ========== -->
+        <header>
+            <h1>홍길동</h1>
+            <p>신입 웹 개발자</p>
+            <div class="contact-info">
+                <a href="mailto:hong.gildong@example.com">hong.gildong@example.com</a> |
+                <span>010-1234-5678</span> |
+                <a href="https://github.com/your-username" target="_blank">GitHub</a> |
+                <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+            </div>
+        </header>
+
+        <main>
+            <!-- ========== 소개 섹션 ========== -->
+            <section class="section">
+                <h2>소개</h2>
+                <p>
+                    새로운 기술을 배우는 것을 즐기는 열정적인 신입 웹 개발자입니다. 사용자 친화적인 인터페이스와 효율적인 백엔드 시스템 구축에 관심이 많습니다. 협업과 소통을 중요하게 생각하며, 긍정적인 자세로 팀에 기여하고 싶습니다.
+                </p>
+            </section>
+
+            <!-- ========== 경력 섹션 ========== -->
+            <section class="section">
+                <h2>경력</h2>
+                <div class="job">
+                    <h3>프로젝트 인턴</h3>
+                    <p><strong>멋진 회사</strong> | <span class="date">2024. 01 - 2024. 06</span></p>
+                    <ul>
+                        <li>React와 Node.js를 이용한 웹 애플리케이션 개발 프로젝트 참여</li>
+                        <li>컴포넌트 기반 UI 개발 및 상태 관리 라이브러리(Redux) 사용</li>
+                        <li>RESTful API 설계 및 구현 보조</li>
+                    </ul>
+                </div>
+                <!-- 다른 경력이 있다면 여기에 추가 -->
+            </section>
+
+            <!-- ========== 기술 섹션 ========== -->
+            <section class="section">
+                <h2>기술</h2>
+                <ul class="skills-list">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>Express</li>
+                    <li>Python</li>
+                    <li>Git & GitHub</li>
+                    <li>SQL</li>
+                </ul>
+            </section>
+
+            <!-- ========== 학력 섹션 ========== -->
+            <section class="section">
+                <h2>학력</h2>
+                <div class="job">
+                    <h3>컴퓨터공학 학사</h3>
+                    <p><strong>대한민국 대학교</strong> | <span class="date">2020. 03 - 2024. 02</span></p>
+                </div>
+            </section>
+        </main>
+
+        <!-- ========== 푸터 ========== -->
+        <footer>
+            <p>&copy; 2024 홍길동. All rights reserved.</p>
+        </footer>
+    </div>
+
 </body>
 </html>
