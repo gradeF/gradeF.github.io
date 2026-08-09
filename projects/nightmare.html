@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIGHTMARE | 이수현 포트폴리오</title>
+<meta name="description" content="NavMesh와 Raycast 기반 몬스터 트래킹 시스템을 갖춘 VR 탈출 게임, NIGHTMARE 프로젝트 상세 - 이수현">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="brand"><span class="dot"></span>이수현</a>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#about">소개</a></li>
+      <li><a href="../index.html#skills">기술 스택</a></li>
+      <li><a href="../index.html#projects">프로젝트</a></li>
+      <li><a href="../index.html#contact">연락처</a></li>
+      <li><a href="https://github.com/gradeF" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header wrap">
+  <div class="breadcrumb"><a href="../index.html">홈</a><span class="sep">/</span><a href="../index.html#projects">프로젝트</a><span class="sep">/</span>NIGHTMARE</div>
+  <div class="pd-kicker">07 · NIGHTMARE</div>
+  <h1>VR 탈출 게임</h1>
+  <p class="pd-sub">먹잇감을 찾아 돌아다니는 꿈속의 몬스터를 피해 보물 상자를 찾아 악몽에서 탈출하는 Unity 기반 VR 게임</p>
+  <div class="pd-links">
+    <a href="https://youtu.be/dx0Je1bFNW0" target="_blank" rel="noopener" class="badge-video">▶ 영상 보기</a>
+    <a href="https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE07274831" target="_blank" rel="noopener">논문 보기 ↗</a>
+  </div>
+  <div class="doc-actions">
+    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.pdf" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+      포트폴리오 PDF 다운로드
+    </a>
+    <button class="btn btn-ghost btn-sm" id="printPdfBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      이 페이지 PDF로 저장
+    </button>
+  </div>
+</header>
+
+<main class="project-body wrap">
+  <div class="pd-hero-img">
+    <img src="../assets/img/nightmare_hero.png" alt="NIGHTMARE 게임 속 추격 몬스터 스크린샷">
+    <div class="pd-hero-caption">게임 속 몬스터</div>
+  </div>
+
+  <div class="pd-meta-grid">
+    <div class="pd-meta-item"><div class="k">기간</div><div class="v">2017년 상반기</div></div>
+    <div class="pd-meta-item"><div class="k">인원</div><div class="v">3인</div></div>
+    <div class="pd-meta-item"><div class="k">장르</div><div class="v">VR 탈출 게임</div></div>
+    <div class="pd-meta-item"><div class="k">기술</div><div class="v">Unity3D, C#</div></div>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">1</div>
+    <h3>RayCast 기반 몬스터 트래킹 시스템</h3>
+    <p class="why"><b>개발 의도.</b> 플레이어가 좀 더 긴박감을 느낄 수 있도록, 한번 쫓기기 시작하면 게임오버 상태가 될 때까지 몬스터가 쫓아오도록 개발했습니다.</p>
+    <ul class="bullets">
+      <li>몬스터는 <b>NavMesh</b>와 <b>Raycast</b>를 함께 사용</li>
+      <li>상태(State): <b>idle</b>(대기) → <b>walk</b>(이동) → <b>search</b>(플레이어 탐색) → <b>chase</b>(추적)</li>
+      <li>몬스터의 눈 위치에서 Ray를 발사해 충돌 오브젝트를 확인하고, <code>"Player"</code>와 충돌 시 상태를 <b>chase</b>로 전환해 추적 시작</li>
+    </ul>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">2</div>
+    <h3>게임 흐름 제어</h3>
+    <ul class="bullets">
+      <li>플레이어가 추격자와 충돌하면 남은 생명 오브젝트 수에 따라 <b>Game Over</b> 이동 또는 생명 -1 처리</li>
+      <li>장애물 충돌 시에도 동일한 생명 기반 알고리즘 적용</li>
+      <li>탈출 열쇠 발견 여부에 따라 <b>Game Clear</b> 또는 계속 플레이로 분기</li>
+    </ul>
+  </div>
+</main>
+
+<nav class="project-pager wrap">
+  <a class="pager-link prev" href="cookierun.html">
+    <span class="plabel">← 이전</span>
+    <span class="ptitle">Windows API 쿠키런 모작</span>
+  </a>
+  <a class="pager-link next" href="../index.html#projects">
+    <span class="plabel">다음 →</span>
+    <span class="ptitle">전체 프로젝트</span>
+  </a>
+</nav>
+
+<footer>
+  <div class="wrap">&copy; 2026 이수현 (Lee Suhyeon). All rights reserved.</div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

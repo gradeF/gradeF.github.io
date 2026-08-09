@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetaMaker | 이수현 포트폴리오</title>
+<meta name="description" content="메타버스 콘텐츠 저작 도구, MetaMaker 프로젝트 상세 - 이수현">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="brand"><span class="dot"></span>이수현</a>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#about">소개</a></li>
+      <li><a href="../index.html#skills">기술 스택</a></li>
+      <li><a href="../index.html#projects">프로젝트</a></li>
+      <li><a href="../index.html#contact">연락처</a></li>
+      <li><a href="https://github.com/gradeF" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header wrap">
+  <div class="breadcrumb"><a href="../index.html">홈</a><span class="sep">/</span><a href="../index.html#projects">프로젝트</a><span class="sep">/</span>MetaMaker</div>
+  <div class="pd-kicker">04 · MetaMaker</div>
+  <h1>메타버스 콘텐츠 저작 도구</h1>
+  <p class="pd-sub">VR 콘텐츠 제작 공정의 효율화를 위한 메타버스 콘텐츠 저작 도구 개발 및 유연한 데이터 관리 시스템 구축</p>
+  <div class="pd-links">
+    <a href="https://youtu.be/gUf8SdJBZFc" target="_blank" rel="noopener" class="badge-video">▶ 영상 보기</a>
+  </div>
+  <div class="doc-actions">
+    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.pdf" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+      포트폴리오 PDF 다운로드
+    </a>
+    <button class="btn btn-ghost btn-sm" id="printPdfBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      이 페이지 PDF로 저장
+    </button>
+  </div>
+</header>
+
+<main class="project-body wrap">
+  <div class="pd-meta-grid">
+    <div class="pd-meta-item"><div class="k">기간</div><div class="v">2023.07 – 2023.12</div></div>
+    <div class="pd-meta-item"><div class="k">인원</div><div class="v">7인 (프로그래머 4 · 기획 3)</div></div>
+    <div class="pd-meta-item"><div class="k">역할</div><div class="v">클라이언트 개발</div></div>
+    <div class="pd-meta-item"><div class="k">기술</div><div class="v">Unity, C#, git, Json</div></div>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">1</div>
+    <h3>JSON 기반 데이터 직렬화/역직렬화 시스템 구축</h3>
+    <p class="why"><b>개발 의도.</b> Unity 기본 타입(Vector3, Quaternion, Color 등)은 JSON으로 기본 직렬화가 되지 않고, VR 콘텐츠 저작 도구 특성상 Transform·머티리얼 색상·텍스트 폰트/내용 등 다양한 커스텀 속성을 안정적으로 저장·복원해야 했습니다. 팀원이 구축해둔 시스템을 이어받아 안정성을 높이는 방향으로 개선했습니다.</p>
+    <div class="diagram-box">
+      <div class="diagram-label">직렬화 흐름</div>
+      <pre class="mermaid">
+flowchart LR
+  Obj["오브젝트 속성"] --> DC["TransformData / MaterialColorData / TextData"]
+  DC --> Enc["Encoder (Singleton)"]
+  Enc --> JSON[("JSON 파일")]
+  JSON --> Dec["Decoder (Singleton)"]
+  Dec --> DC2["데이터 클래스 복원"]
+  DC2 --> Obj2["오브젝트 재적용"]
+      </pre>
+    </div>
+    <p style="color:var(--text-dim); font-size:0.93rem;">속성별로 직렬화 대상 데이터 클래스를 분리 설계해, 새로운 속성 타입을 추가하기 쉬워지고 저장/불러오기 과정의 안정성을 확보했습니다.</p>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">2</div>
+    <h3>VR 콘텐츠 제작 효율화 툴 개발</h3>
+    <p class="why"><b>개발 의도.</b> 코드를 직접 작성하지 않고도 기획자 등 비개발 인력이 VR 콘텐츠의 오브젝트 배치, 씬 구성, 인터랙션 설정까지 할 수 있도록 해 제작 공정 전체의 효율을 높이고자 했습니다.</p>
+    <ul class="bullets">
+      <li>Unity 에디터 확장 + 런타임 UI를 모두 지원 — 오브젝트 배치/구성 기능과 인터랙션 기능을 직접 담당</li>
+      <li>어떤 트리거(클릭, 충돌 등)에 어떤 액션(이동, 사운드 재생 등)이 실행될지 GUI에서 정의</li>
+      <li>설정은 <b>InteractionData</b>로 저장, 런타임에 <b>InteractionRuntime</b>이 읽어 실제 동작으로 실행</li>
+    </ul>
+    <div class="insight-box">개발 지식이 없는 기획자도 직접 VR 콘텐츠를 제작·수정할 수 있게 되어 제작 공정이 효율화됐습니다.</div>
+  </div>
+</main>
+
+<nav class="project-pager wrap">
+  <a class="pager-link prev" href="industrial.html">
+    <span class="plabel">← 이전</span>
+    <span class="ptitle">메타버스 기반 산업단지 고도화 사업</span>
+  </a>
+  <a class="pager-link next" href="deus.html">
+    <span class="plabel">다음 →</span>
+    <span class="ptitle">DEUS EX MACHINA</span>
+  </a>
+</nav>
+
+<footer>
+  <div class="wrap">&copy; 2026 이수현 (Lee Suhyeon). All rights reserved.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

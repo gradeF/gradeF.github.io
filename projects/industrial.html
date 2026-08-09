@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메타버스 기반 산업단지 고도화 사업 | 이수현 포트폴리오</title>
+<meta name="description" content="정보통신산업진흥원(NIPA) 지원 - 메타버스 기반 실시간 원격 지원 및 AR 가이드 시스템 프로젝트 상세 - 이수현">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="brand"><span class="dot"></span>이수현</a>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#about">소개</a></li>
+      <li><a href="../index.html#skills">기술 스택</a></li>
+      <li><a href="../index.html#projects">프로젝트</a></li>
+      <li><a href="../index.html#contact">연락처</a></li>
+      <li><a href="https://github.com/gradeF" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header wrap">
+  <div class="breadcrumb"><a href="../index.html">홈</a><span class="sep">/</span><a href="../index.html#projects">프로젝트</a><span class="sep">/</span>메타버스 기반 산업단지 고도화 사업</div>
+  <div class="pd-kicker">03 · 메타버스 기반 산업단지 고도화 사업</div>
+  <h1>실시간 원격 지원 &amp; AR 가이드 시스템</h1>
+  <p class="pd-sub">정보통신산업진흥원(NIPA) 충남 지원사업 — 산업 현장의 효율적 협업을 위한 메타버스 기반 실시간 원격 지원 및 AR 가이드 시스템 구축 (3년간 진행)</p>
+  <div class="pd-links">
+    <a href="https://youtu.be/aVFisJWerbA?si=qTLRDT2Jf_Cs5TrO" target="_blank" rel="noopener" class="badge-video">▶ 영상 보기</a>
+  </div>
+  <div class="doc-actions">
+    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.pdf" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+      포트폴리오 PDF 다운로드
+    </a>
+    <button class="btn btn-ghost btn-sm" id="printPdfBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      이 페이지 PDF로 저장
+    </button>
+  </div>
+</header>
+
+<main class="project-body wrap">
+  <div class="pd-hero-img">
+    <img src="../assets/img/industrial_banner.png" alt="정보통신산업진흥원 충남 메타버스 기반 산업단지 고도화 사업 배너">
+  </div>
+
+  <div class="pd-meta-grid">
+    <div class="pd-meta-item"><div class="k">기간</div><div class="v">2023 – 2025 (3년)</div></div>
+    <div class="pd-meta-item"><div class="k">인원</div><div class="v">3인 (프로그래머 2 · 기획 1)</div></div>
+    <div class="pd-meta-item"><div class="k">역할</div><div class="v">클라이언트 프로그래머</div></div>
+    <div class="pd-meta-item"><div class="k">기술</div><div class="v">Unity, C#, Photon, WebRTC, MRTK API, SVN, git</div></div>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">1</div>
+    <h3>시스템 구조 리팩토링을 통한 결합도 해소</h3>
+    <p class="why"><b>개발 의도.</b> 여러 서브 시스템을 통합하는 과정에서 프레임드랍이 다수 발생했고, 잦은 싱글톤 사용으로 기능 수정 시 영향 범위 파악이 어려운 유지보수 문제가 누적됐습니다.</p>
+    <ul class="bullets">
+      <li><code>Manager.instance</code>가 씬 전환·키보드·번역·사운드·네트워크·WebRTC·드로잉·이미지/PDF 뷰어를 모두 직접 소유하던 구조를 발견</li>
+      <li><b>Manager 싱글톤 → 이벤트/옵저버 패턴</b>으로 전환해 매니저 간 직접 참조를 최소화</li>
+    </ul>
+    <div class="insight-box">구조 전환 결과, 기능 추가에 필요한 소요 시간이 눈에 띄게 줄었습니다.</div>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">2</div>
+    <h3>실시간 네트워크 및 커뮤니케이션 시스템 구현</h3>
+    <p class="why"><b>개발 의도.</b> PC 사용자와 AR 사용자 간의 실시간 화면 공유를 위해 구현했습니다.</p>
+    <ul class="bullets">
+      <li><b>Photon</b> — 룸 매칭/시그널링, 드로잉 좌표 스트리밍</li>
+      <li><b>WebRTC</b> (Microsoft MixedReality-WebRTC 기반) — AR 사용자의 카메라 뷰·음성을 PC로 실시간 스트리밍</li>
+    </ul>
+    <div class="diagram-box">
+      <div class="diagram-label">WebRTC 연결 구조</div>
+      <pre class="mermaid">
+classDiagram
+  class PeerServer {
+    +List~ClientSignaler~ clientSignalerList
+  }
+  class ClientSignaler {
+    +NodeDssSignaler nodeDssSignaler
+    +VideoRenderer videoRenderer
+    +Initialized(localPeerId, remotePeerId)
+    +ClientCheckConnected()
+  }
+  class PeerClient {
+    +NodeDssSignaler nodeDssSignaler
+    +StartStreamingPeerConnection()
+  }
+  class NodeDssSignaler {
+    +PeerConnection PeerConnection
+    +LocalPeerId
+    +RemotePeerId
+  }
+  class PeerConnection
+  PeerServer "1" --> "*" ClientSignaler : 관리
+  ClientSignaler --> NodeDssSignaler
+  PeerClient --> NodeDssSignaler
+  NodeDssSignaler --> PeerConnection
+      </pre>
+    </div>
+    <div class="insight-box">
+      <b>트러블슈팅.</b> WebRTC 네이티브 라이브러리와 빌드 타겟 아키텍처(arm32/arm64)가 맞지 않아 연결이 맺어지지 않는 문제가 있었고,
+      빌드 타겟 아키텍처를 고정해 해결했습니다.
+    </div>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">3</div>
+    <h3>절차적 AR 콘텐츠 및 인터랙션 개발</h3>
+    <p class="why"><b>개발 의도.</b> 통제된 현장에서는 관리자가 직접 왕복 대응하는 데 시간이 오래 걸려 즉각적인 문제 해결이 어려웠습니다. 현장에 처음 투입되는 작업자가 AR 매뉴얼을 참고해 스스로 순서대로 작업하고, 문제 발생 시에만 관리자에게 연락하도록 개발했습니다.</p>
+    <div class="diagram-box">
+      <div class="diagram-label">Class Diagram</div>
+      <pre class="mermaid">
+classDiagram
+  class AR_Manager {
+    +int CurStep
+    +List~RectTransform~ SpotLights
+    +NextStep()
+    +PreStep()
+    -SetObject()
+    -SetScreen()
+    -SetExplanation()
+    -SetWarning()
+  }
+  class CSV_Manager {
+    +Read(file) List~Dictionary~
+    +GetPath()
+  }
+  class ScreenView
+  class SpotLightHighlight
+  class WarningNotice
+  AR_Manager --> CSV_Manager : Document
+  AR_Manager --> ScreenView : RawImage
+  AR_Manager --> SpotLightHighlight : 공간 하이라이트
+  AR_Manager --> WarningNotice : TMP_Text
+      </pre>
+    </div>
+    <ul class="bullets">
+      <li>CSV로 정의된 단계별 데이터(버튼 위치, 화면 이미지, 설명, 경고)를 <b>CSV_Manager</b>가 읽고, <b>AR_Manager</b>가 <code>CurStep</code>에 따라 순서대로 재생</li>
+      <li>단계마다 공간상 특정 위치를 스팟라이트로 하이라이트, 화면 이미지 페이드 전환, 설명 텍스트 표시</li>
+      <li>핸드트래킹(MRTK) 조작 및 드로잉 주석 인터랙션 결합</li>
+    </ul>
+    <div class="insight-box">콘텐츠가 코드에 하드코딩되지 않고 CSV로 분리되어, <b>기획자가 직접</b> 절차 내용을 수정할 수 있습니다.</div>
+  </div>
+</main>
+
+<nav class="project-pager wrap">
+  <a class="pager-link prev" href="mro.html">
+    <span class="plabel">← 이전</span>
+    <span class="ptitle">MROSystems</span>
+  </a>
+  <a class="pager-link next" href="metamaker.html">
+    <span class="plabel">다음 →</span>
+    <span class="ptitle">MetaMaker</span>
+  </a>
+</nav>
+
+<footer>
+  <div class="wrap">&copy; 2026 이수현 (Lee Suhyeon). All rights reserved.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

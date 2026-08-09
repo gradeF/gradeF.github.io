@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEUS EX MACHINA | 이수현 포트폴리오</title>
+<meta name="description" content="Dead by Daylight 모작 비대칭 PvP 서바이벌, DEUS EX MACHINA 프로젝트 상세 - 이수현">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="brand"><span class="dot"></span>이수현</a>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#about">소개</a></li>
+      <li><a href="../index.html#skills">기술 스택</a></li>
+      <li><a href="../index.html#projects">프로젝트</a></li>
+      <li><a href="../index.html#contact">연락처</a></li>
+      <li><a href="https://github.com/gradeF" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header wrap">
+  <div class="breadcrumb"><a href="../index.html">홈</a><span class="sep">/</span><a href="../index.html#projects">프로젝트</a><span class="sep">/</span>DEUS EX MACHINA</div>
+  <div class="pd-kicker">05 · DEUS EX MACHINA</div>
+  <h1>비대칭 PvP 서바이벌 (Dead by Daylight 모작)</h1>
+  <p class="pd-sub">강력한 한 명의 플레이어에게는 압도하는 플레이를, 나약한 다수 플레이어에게는 시련을 극복하는 성취의 재미를 주는 것을 목표로 기획했습니다.</p>
+  <div class="pd-links">
+    <a href="https://youtu.be/gUf8SdJBZFc" target="_blank" rel="noopener" class="badge-video">▶ 영상 보기</a>
+  </div>
+  <div class="doc-actions">
+    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.pdf" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+      포트폴리오 PDF 다운로드
+    </a>
+    <button class="btn btn-ghost btn-sm" id="printPdfBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      이 페이지 PDF로 저장
+    </button>
+  </div>
+</header>
+
+<main class="project-body wrap">
+  <div class="pd-hero-img">
+    <img src="../assets/img/deus_hero.png" alt="DEUS EX MACHINA 게임 내 상호작용 시스템 스크린샷">
+    <div class="pd-hero-caption">상호작용 시스템이 작동 중인 게임 화면</div>
+  </div>
+
+  <div class="pd-meta-grid">
+    <div class="pd-meta-item"><div class="k">기간</div><div class="v">2022 하반기</div></div>
+    <div class="pd-meta-item"><div class="k">인원</div><div class="v">8인 (프로그래머 3 · 기획 5)</div></div>
+    <div class="pd-meta-item"><div class="k">플레이 인원</div><div class="v">2~5인</div></div>
+    <div class="pd-meta-item"><div class="k">기술</div><div class="v">Unity3D, C#</div></div>
+  </div>
+
+  <p style="color:var(--text-dim); margin-bottom:40px;">
+    플레이어는 <b>퇴마사</b>와 <b>인형</b> 중 하나의 진영을 선택합니다. 퇴마사는 술래잡기의 술래처럼 인형 플레이어를 모두 제거하는 것이 목표이고,
+    인형은 퇴마사를 피해 탈출 조건을 만족하고 탈출하는 것이 목표입니다.
+  </p>
+
+  <div class="contrib">
+    <div class="contrib-num">1</div>
+    <h3>확률 기반 랜덤 박스 시스템</h3>
+    <p class="why"><b>개발 의도.</b> 역전의 발판 혹은 승리를 굳힐 기회를 주어 플레이를 다채롭게 하기 위한 아이템 시스템입니다. 각 아이템의 등장 확률은 등장 빈도 값에 따라 무작위로 결정됩니다.</p>
+    <p style="font-size:0.93rem; color:var(--text-dim);">아이템 등장 빈도는 기본값 10인 정수 데이터이며 0 미만이 될 수 없습니다. <br><code>아이템 등장 확률 = 해당 아이템의 등장 빈도 / 모든 아이템의 등장 빈도 합</code></p>
+    <ul class="bullets">
+      <li><b>RandomGenerator&lt;T&gt;</b> — 무작위 리스트를 만들어 오브젝트를 뽑아주는 제네릭 클래스</li>
+      <li><b>Item / ItemBox</b> — 아이템을 생성/저장/제거하는 클래스, <b>ExorcistItemBox</b> / <b>DollItemBox</b>가 진영별로 상속</li>
+    </ul>
+    <div class="code-box">
+      <div class="code-title"><span>RandomGenerator.cs</span><span>C#</span></div>
+      <pre><code>public class RandomGenerator&lt;T&gt;
+{
+    List&lt;T&gt; randomlist = new List&lt;T&gt;();
+
+    public void Add(in T item)
+    {
+        randomlist.Add(item);
+    }
+
+    public void Add(in T item, int count)
+    {
+        for (var i = 0; i &lt; count; ++i)
+        {
+            randomlist.Add(item);
+        }
+    }
+
+    public void AddRange(in List&lt;T&gt; items)
+    {
+        randomlist.AddRange(items);
+    }
+
+    public T GetItem()
+    {
+        int i = Random.Range(0, randomlist.Count);
+        return randomlist[i];
+    }
+
+    public T GetAndRemoveItem()
+    {
+        int i = Random.Range(0, randomlist.Count);
+        T item = randomlist[i];
+        randomlist.RemoveAt(i);
+        return item;
+    }
+}</code></pre>
+    </div>
+    <div class="insight-box">예를 들어 100개의 아이템에서 25%의 확률로 하나의 아이템을 획득하게 하려면, 25개의 동일 아이템을 리스트에 넣어 확률을 만듭니다 — <code>Add(item, count)</code>가 이 역할을 담당합니다.</div>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">2</div>
+    <h3>UI 최적화</h3>
+    <p class="why"><b>개발 의도.</b> UGUI(Unity UI)는 Canvas가 UI 메시를 생성/업데이트하고 GPU에 드로우 콜을 보내기 때문에 성능 문제의 원인이 되는 경우가 많습니다.</p>
+    <ul class="bullets">
+      <li>상호작용이 없는 UI는 <b>Raycast Target을 비활성화</b>해 불필요한 히트테스트 제거</li>
+      <li>Canvas의 <code>Render Camera</code>를 비워두면 Unity가 자동으로 채워 리소스가 낭비되므로, <b>RenderMode를 Screen Space – Overlay</b>로 명시적으로 고정</li>
+    </ul>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">3</div>
+    <h3>Object 상호작용 시스템</h3>
+    <p class="why"><b>개발 의도.</b> 플레이어와 다른 오브젝트가 상호작용할 수 있도록 개발했습니다.</p>
+    <ul class="bullets">
+      <li>오브젝트 앞에는 Trigger용 <b>Collider</b>, 플레이어 전면에는 <b>Interactor</b>가 존재 — 둘이 Trigger되면 상호작용 가능 여부를 판단</li>
+      <li><b>Interactor</b>가 <b>IInteractor</b>를 찾으면 <code>TryInteract()</code> 호출</li>
+      <li><b>InteractionPromptUI</b>가 상호작용 가능 시 UI와 외곽선을 표시해 플레이어에게 알림 (진행 중 이펙트/UI, 종료·불가 시 표시 해제)</li>
+    </ul>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">4</div>
+    <h3>Casting 시스템</h3>
+    <p class="why"><b>개발 의도.</b> 대부분의 상호작용이 캐스팅(게이지 충전) 후 작동하기 때문에 개발했습니다.</p>
+    <ul class="bullets">
+      <li><b>캐스팅 타입</b> — Auto(한 번 누르면 끝까지 증가) / Manual(누르고 있는 동안만 증가)</li>
+      <li><b>저장 방식</b> — Volatile(데이터 유지) / Non-Volatile(데이터 미유지)</li>
+      <li><b>Cast / CastFuncSet / CastingSystem</b> 구조로 타입별 저장 방식과 실행 함수 조합을 분리</li>
+    </ul>
+  </div>
+</main>
+
+<nav class="project-pager wrap">
+  <a class="pager-link prev" href="metamaker.html">
+    <span class="plabel">← 이전</span>
+    <span class="ptitle">MetaMaker</span>
+  </a>
+  <a class="pager-link next" href="cookierun.html">
+    <span class="plabel">다음 →</span>
+    <span class="ptitle">Windows API 쿠키런 모작</span>
+  </a>
+</nav>
+
+<footer>
+  <div class="wrap">&copy; 2026 이수현 (Lee Suhyeon). All rights reserved.</div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

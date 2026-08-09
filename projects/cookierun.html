@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windows API 쿠키런 모작 | 이수현 포트폴리오</title>
+<meta name="description" content="Win32 API/GDI 기반 2D 횡스크롤 러닝 액션, 쿠키런 모작 프로젝트 상세 - 이수현">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="brand"><span class="dot"></span>이수현</a>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#about">소개</a></li>
+      <li><a href="../index.html#skills">기술 스택</a></li>
+      <li><a href="../index.html#projects">프로젝트</a></li>
+      <li><a href="../index.html#contact">연락처</a></li>
+      <li><a href="https://github.com/gradeF" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header wrap">
+  <div class="breadcrumb"><a href="../index.html">홈</a><span class="sep">/</span><a href="../index.html#projects">프로젝트</a><span class="sep">/</span>Windows API 쿠키런 모작</div>
+  <div class="pd-kicker">06 · Windows API를 이용한 쿠키런 모작</div>
+  <h1>2D 횡스크롤 러닝 액션</h1>
+  <p class="pd-sub">Windows API(GDI)만으로 쿠키런 오븐브레이크 1스테이지를 모작하는 것을 목표로 한 1인 개발 프로젝트</p>
+  <div class="pd-links">
+    <a href="https://youtu.be/3R8aKTtWkls" target="_blank" rel="noopener" class="badge-video">▶ 영상 보기</a>
+  </div>
+  <div class="doc-actions">
+    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.pdf" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+      포트폴리오 PDF 다운로드
+    </a>
+    <button class="btn btn-ghost btn-sm" id="printPdfBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      이 페이지 PDF로 저장
+    </button>
+  </div>
+</header>
+
+<main class="project-body wrap">
+  <div class="pd-meta-grid">
+    <div class="pd-meta-item"><div class="k">기간</div><div class="v">2022년 중반기</div></div>
+    <div class="pd-meta-item"><div class="k">인원</div><div class="v">1인</div></div>
+    <div class="pd-meta-item"><div class="k">장르</div><div class="v">2D 횡스크롤 러닝 액션</div></div>
+    <div class="pd-meta-item"><div class="k">기술</div><div class="v">C++, Windows API (GDI)</div></div>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">1</div>
+    <h3>구성 아키텍처</h3>
+    <p class="why">엔진 없이 순수 C++/Win32로 게임 루프, 렌더링, 충돌, 애니메이션을 직접 구현했습니다.</p>
+    <ul class="bullets">
+      <li><b>Game</b> — <code>Update</code>/<code>Draw</code>로 전체 게임을 관리, <code>HDC</code> 더블 버퍼링(<code>BitBlt</code>)으로 화면 출력</li>
+      <li><b>Stage</b> — Obstacle / Flag / Ground / Background / Jelly 등 구성요소를 그리고 업데이트</li>
+      <li><b>Player, Collider, Animation, ImageManager</b> — 각각 플레이어 로직, 충돌 처리, 애니메이션, 이미지 리소스를 담당</li>
+    </ul>
+  </div>
+
+  <div class="contrib">
+    <div class="contrib-num">2</div>
+    <h3>무한 배경을 위한 스크롤링 시스템</h3>
+    <p class="why"><b>개발 의도.</b> 배경 이미지가 끊기지 않고 적은 양의 이미지만으로 무한히 이어지는 것처럼 보이도록 개발했습니다.</p>
+    <ul class="bullets">
+      <li>동일한 이미지 2장을 나란히 배치하고, 이미지의 가로 길이만큼 이동하면 위치를 원점으로 되돌리는 방식</li>
+    </ul>
+    <div class="code-box">
+      <div class="code-title"><span>Background.h</span><span>C++</span></div>
+      <pre><code>class BackGround
+{
+public:
+    BackGround()
+        : x(0), y(0),
+          hBackImage((HBITMAP)LoadImage(NULL, BackgroundImagePath,
+              IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION))
+    {
+        GetObject(hBackImage, sizeof(BITMAP), &amp;bitBack);
+        bx = bitBack.bmWidth;
+        by = bitBack.bmHeight;
+    }
+
+    void Update(float dt)
+    {
+        x -= 1;
+        if (x == -bx)
+        {
+            x = 0;
+        }
+    }
+
+    void Draw(HDC hdc)
+    {
+        HDC hMemDC;
+        HBITMAP hOldBitmap;
+        CreateCompatibleDCAndSelectBitmap(hdc, hBackImage, hMemDC, hOldBitmap);
+        BitBlt(hdc, x,      y, bx, by, hMemDC, 0, 0, SRCCOPY);
+        BitBlt(hdc, x + bx, y, bx, by, hMemDC, 0, 0, SRCCOPY);
+        DeleteCompatibleDC(hMemDC, hOldBitmap);
+    }
+
+private:
+    int x, y;
+    HBITMAP hBackImage;
+    BITMAP bitBack;
+    int bx, by;
+};</code></pre>
+    </div>
+    <div class="insight-box">두 이미지를 <code>x</code>, <code>x + bx</code> 위치에 각각 그리기 때문에 한 이미지가 화면 밖으로 완전히 빠져나가기 전에 다음 이미지가 이어져 <b>끊김 없는 배경</b>이 완성됩니다.</div>
+  </div>
+</main>
+
+<nav class="project-pager wrap">
+  <a class="pager-link prev" href="deus.html">
+    <span class="plabel">← 이전</span>
+    <span class="ptitle">DEUS EX MACHINA</span>
+  </a>
+  <a class="pager-link next" href="nightmare.html">
+    <span class="plabel">다음 →</span>
+    <span class="ptitle">NIGHTMARE</span>
+  </a>
+</nav>
+
+<footer>
+  <div class="wrap">&copy; 2026 이수현 (Lee Suhyeon). All rights reserved.</div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
