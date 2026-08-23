@@ -38,9 +38,9 @@
     <a href="https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE07274831" target="_blank" rel="noopener">논문 보기 ↗</a>
   </div>
   <div class="doc-actions">
-    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.pdf" download>
+    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.docx" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
-      포트폴리오 PDF 다운로드
+      포트폴리오 다운로드
     </a>
     <button class="btn btn-ghost btn-sm" id="printPdfBtn" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
@@ -51,8 +51,8 @@
 
 <main class="project-body wrap">
   <div class="pd-hero-img">
-    <img src="../assets/img/nightmare_hero.png" alt="NIGHTMARE 게임 속 추격 몬스터 스크린샷">
-    <div class="pd-hero-caption">게임 속 몬스터</div>
+    <img src="../assets/img/nightmare_cover.png" alt="NIGHTMARE 게임 표지 스크린샷, 어두운 방에 있는 몬스터">
+    <div class="pd-hero-caption">먹잇감을 찾아 돌아다니는 꿈속의 몬스터</div>
   </div>
 
   <div class="pd-meta-grid">
@@ -71,6 +71,16 @@
       <li>상태(State): <b>idle</b>(대기) → <b>walk</b>(이동) → <b>search</b>(플레이어 탐색) → <b>chase</b>(추적)</li>
       <li>몬스터의 눈 위치에서 Ray를 발사해 충돌 오브젝트를 확인하고, <code>"Player"</code>와 충돌 시 상태를 <b>chase</b>로 전환해 추적 시작</li>
     </ul>
+    <div class="img-row">
+      <div class="shot">
+        <img src="../assets/img/nightmare_hero.png" alt="게임 속 몬스터가 플레이어를 추격하는 장면">
+        <div class="shot-caption">게임 속 몬스터</div>
+      </div>
+      <div class="shot">
+        <img src="../assets/img/nightmare_navmesh.png" alt="NavMesh와 Raycast로 몬스터를 트래킹하는 씬 뷰">
+        <div class="shot-caption">NavMesh 기반 몬스터 트래킹</div>
+      </div>
+    </div>
   </div>
 
   <div class="contrib">
@@ -81,6 +91,10 @@
       <li>장애물 충돌 시에도 동일한 생명 기반 알고리즘 적용</li>
       <li>탈출 열쇠 발견 여부에 따라 <b>Game Clear</b> 또는 계속 플레이로 분기</li>
     </ul>
+    <div class="diagram-box img-box">
+      <div class="diagram-label">Flow Chart</div>
+      <img src="../assets/img/nightmare_flow.png" alt="추격자/장애물 충돌 및 열쇠 발견 여부에 따른 게임 흐름도">
+    </div>
   </div>
 </main>
 

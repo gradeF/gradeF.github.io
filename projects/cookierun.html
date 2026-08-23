@@ -37,9 +37,9 @@
     <a href="https://youtu.be/3R8aKTtWkls" target="_blank" rel="noopener" class="badge-video">▶ 영상 보기</a>
   </div>
   <div class="doc-actions">
-    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.pdf" download>
+    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.docx" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
-      포트폴리오 PDF 다운로드
+      포트폴리오 다운로드
     </a>
     <button class="btn btn-ghost btn-sm" id="printPdfBtn" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
@@ -49,6 +49,11 @@
 </header>
 
 <main class="project-body wrap">
+  <div class="pd-hero-img">
+    <img src="../assets/img/cookierun_hero.png" alt="쿠키런 모작 게임 플레이 스크린샷">
+    <div class="pd-hero-caption">쿠키런 오븐브레이크 모작 게임 화면</div>
+  </div>
+
   <div class="pd-meta-grid">
     <div class="pd-meta-item"><div class="k">기간</div><div class="v">2022년 중반기</div></div>
     <div class="pd-meta-item"><div class="k">인원</div><div class="v">1인</div></div>
@@ -65,6 +70,10 @@
       <li><b>Stage</b> — Obstacle / Flag / Ground / Background / Jelly 등 구성요소를 그리고 업데이트</li>
       <li><b>Player, Collider, Animation, ImageManager</b> — 각각 플레이어 로직, 충돌 처리, 애니메이션, 이미지 리소스를 담당</li>
     </ul>
+    <div class="diagram-box img-box">
+      <div class="diagram-label">쿠키런 게임의 구성도</div>
+      <img src="../assets/img/cookierun_diagram.png" alt="Game, Stage, Player, Obstacle, Flag, Ground, Background, Jelly 등 쿠키런 게임 구성 클래스 다이어그램">
+    </div>
   </div>
 
   <div class="contrib">
@@ -74,6 +83,12 @@
     <ul class="bullets">
       <li>동일한 이미지 2장을 나란히 배치하고, 이미지의 가로 길이만큼 이동하면 위치를 원점으로 되돌리는 방식</li>
     </ul>
+    <div class="img-row">
+      <div class="shot">
+        <img src="../assets/img/cookierun_scrolling.png" alt="게임 내 스크롤링이 적용된 배경 화면">
+        <div class="shot-caption">게임 내 스크롤링 적용</div>
+      </div>
+    </div>
     <div class="code-box">
       <div class="code-title"><span>Background.h</span><span>C++</span></div>
       <pre><code>class BackGround

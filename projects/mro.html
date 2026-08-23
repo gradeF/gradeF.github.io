@@ -34,9 +34,9 @@
   <h1>데이터 중심 VR 자산 관리 시스템</h1>
   <p class="pd-sub">산업 현장의 유지보수(MRO) 효율성을 높이기 위한 VR 기반 자산 관리 시스템 및 데이터 중심 콘텐츠 운영 환경 구축</p>
   <div class="doc-actions">
-    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.pdf" download>
+    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.docx" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
-      포트폴리오 PDF 다운로드
+      포트폴리오 다운로드
     </a>
     <button class="btn btn-ghost btn-sm" id="printPdfBtn" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
@@ -57,16 +57,9 @@
     <div class="contrib-num">1</div>
     <h3>데이터 중심(Data-Driven) 인벤토리 시스템 설계 및 구현</h3>
     <p class="why"><b>개발 의도.</b> 기획자가 CSV 파일 수정만으로 프로그램 내 아이템 데이터를 실시간으로 수정할 수 있는, 확장성 높고 독립적인 인벤토리 아키텍처를 구축했습니다.</p>
-    <div class="diagram-box">
-      <div class="diagram-label">Data Flow</div>
-      <pre class="mermaid">
-flowchart LR
-  A[CSV 파일] --> B[CSV Parser]
-  B --> C[Data Manager]
-  C --> D[인벤토리 시스템]
-  D --> E[Unity UI]
-  D --> F["3D 프리팹 동적 시각화"]
-      </pre>
+    <div class="diagram-box img-box">
+      <div class="diagram-label">Architecture</div>
+      <img src="../assets/img/mro_diagram_inventory.png" alt="CSV → Model → Controller → View 인벤토리 아키텍처 다이어그램">
     </div>
     <ul class="bullets">
       <li><b>Model</b> — CSVParser / CSVManager / CSVReader / Data Struct: 고유 ID를 Key로 Dictionary 캐싱</li>
@@ -95,6 +88,10 @@ flowchart LR
     <div class="contrib-num">3</div>
     <h3>사용자 환경 설정(Preference) 관리 시스템 및 UI</h3>
     <p class="why"><b>개발 의도.</b> 사용자가 변경한 환경 설정을 유지·관리하기 위해 섹션별 관리가 쉽고 직관적인 편집이 가능한 <code>.ini</code> 포맷을 선택했습니다. 싱글톤 사용을 의도적으로 지양해 결합도를 낮췄습니다.</p>
+    <div class="diagram-box img-box">
+      <div class="diagram-label">5-Layer Pipeline</div>
+      <img src="../assets/img/mro_diagram_preference.png" alt=".ini 파서 → 데이터 저장 → 접근/제어 중재 → Controller → Viewer 5단계 파이프라인 다이어그램">
+    </div>
     <ul class="bullets">
       <li><b>.ini 파서</b> → <b>데이터 저장 클래스</b> → <b>접근/제어 중재 클래스</b> → <b>Controller</b> → <b>Viewer</b>의 5단계 레이어 파이프라인</li>
       <li>런타임에는 인메모리 값만 변경하고, 옵션 창을 닫거나 저장 버튼을 누를 때만 파일 작성 — 배치 쓰기로 <b>디스크 I/O 최적화</b></li>
@@ -118,7 +115,6 @@ flowchart LR
   <div class="wrap">&copy; 2026 이수현 (Lee Suhyeon). All rights reserved.</div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 <script src="../assets/js/main.js"></script>
 </body>
 </html>

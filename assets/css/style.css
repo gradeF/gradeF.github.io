@@ -211,6 +211,14 @@ section{padding:100px 0;}
 .diagram-label{font-size:0.75rem; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;}
 pre.mermaid{margin:0; display:flex; justify-content:center;}
 
+/* Real diagram/screenshot images (from source docs, not mermaid) */
+.diagram-box.img-box{padding:16px; overflow-x:visible;}
+.diagram-box.img-box img{border-radius:8px; margin:0 auto; max-height:520px; width:auto;}
+.img-row{display:flex; gap:16px; flex-wrap:wrap; margin:18px 0;}
+.img-row .shot{flex:1 1 220px; background:#11151d; border:1px solid #232b3a; border-radius:12px; padding:14px; text-align:center;}
+.img-row .shot img{border-radius:8px; margin:0 auto; max-height:320px; width:auto;}
+.shot-caption{font-size:0.78rem; color:var(--text-faint); margin-top:10px;}
+
 .code-box{background:#0d1117; border:1px solid var(--border); border-radius:12px; overflow:hidden; margin:18px 0;}
 .code-box .code-title{
   padding:10px 16px; font-size:0.78rem; color:var(--text-faint); border-bottom:1px solid var(--border);

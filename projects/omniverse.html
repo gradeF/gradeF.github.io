@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NVIDIA Omniverse POC | 이수현 포트폴리오</title>
-<meta name="description" content="NVIDIA Omniverse 플랫폼 기반 실시간 협업·웹 스트리밍 기술 검증(POC) 프로젝트 상세 - 이수현">
+<meta name="description" content="건설현장 4D(3D+공정) BIM 데이터를 웹에서 실시간 스트리밍 시각화하는 NVIDIA Omniverse 기반 웹 뷰어 기술 검증(POC) - 이수현">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -31,12 +31,12 @@
 <header class="page-header wrap">
   <div class="breadcrumb"><a href="../index.html">홈</a><span class="sep">/</span><a href="../index.html#projects">프로젝트</a><span class="sep">/</span>NVIDIA Omniverse POC</div>
   <div class="pd-kicker">01 · NVIDIA Omniverse POC</div>
-  <h1>실시간 협업·스트리밍 기술 검증(POC)</h1>
-  <p class="pd-sub">NVIDIA Omniverse 플랫폼을 활용한 차세대 실시간 협업 환경 검증 및 웹 기반 고성능 스트리밍 시스템 구축</p>
+  <h1>건설현장 4D BIM 웹 스트리밍 뷰어</h1>
+  <p class="pd-sub">NVIDIA Omniverse 플랫폼을 활용해 건설현장의 4D(3D+공정) BIM 데이터를 웹 브라우저에서 실시간 스트리밍 시각화하고, 특정 날짜 기준 시공 진행 상태를 3D로 확인할 수 있는 프로덕션급 웹 뷰어를 구축한 기술 검증 프로젝트입니다.</p>
   <div class="doc-actions">
-    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.pdf" download>
+    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.docx" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
-      포트폴리오 PDF 다운로드
+      포트폴리오 다운로드
     </a>
     <button class="btn btn-ghost btn-sm" id="printPdfBtn" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
@@ -48,7 +48,7 @@
 <main class="project-body wrap">
   <div class="pd-meta-grid">
     <div class="pd-meta-item"><div class="k">기간</div><div class="v">2025.10 – 2025.11</div></div>
-    <div class="pd-meta-item"><div class="k">인원</div><div class="v">3인 (프로그래머 2 · 기획 1)</div></div>
+    <div class="pd-meta-item"><div class="k">인원</div><div class="v">3인 (프로그래머 3 · 기획 1)</div></div>
     <div class="pd-meta-item"><div class="k">역할</div><div class="v">클라이언트 프로그래머 / Omniverse 아키텍처 &amp; 스트리밍 시스템 구축</div></div>
     <div class="pd-meta-item"><div class="k">기술</div><div class="v">Python, OpenUSD, NVIDIA Omniverse, git</div></div>
   </div>
@@ -56,73 +56,68 @@
   <div class="contrib">
     <div class="contrib-num">1</div>
     <h3>Web–Omniverse 실시간 스트리밍 시스템 구축</h3>
-    <p class="why"><b>개발 의도.</b> 고사양 GPU 없이도 브라우저만으로 Omniverse 3D 씬에 접근해 실시간으로 협업할 수 있는 환경이 필요했습니다.
-    별도 클라이언트 설치나 3D 뷰어 없이, 웹 브라우저에서 Omniverse Kit 앱을 원격 스트리밍 받아 조작하는 하드웨어 제약 없는 협업 리뷰 워크플로우를 검증했습니다.</p>
+    <p class="why"><b>개발 의도.</b> 건설 현장의 4D(3D 모델 + 공정 일정) BIM 데이터를 현장 관계자가 별도 클라이언트 설치 없이 웹 브라우저에서 실시간으로 확인하고,
+    계획 대비 실제 공정 진행 현황을 한눈에 비교할 수 있는 프로덕션급 웹 뷰어를 개발했습니다. 본인은 Omniverse Kit 앱과의 WebRTC 연결 및 커스텀 메시지 프로토콜 등 스트리밍·메시징 로직을 담당했습니다.</p>
     <ul class="bullets">
-      <li>NVIDIA <b>web-viewer-sample</b> 기반으로 <code>Kit 앱(서버) ↔ WebRTC ↔ 자체 제작 웹 클라이언트</code> 구조 구축</li>
-      <li>웹 클라이언트는 <b>React + TypeScript + Vite</b>로 UI/UX를 새로 제작 (샘플은 구조만 참고)</li>
-      <li>JSON 기반 커스텀 메시지 프로토콜(<code>event_type + payload</code>)을 확장해 씬 로드 요청, 오브젝트 선택 동기화 등 양방향 이벤트 처리 구현</li>
+      <li>NVIDIA <b>Omniverse WebRTC Streaming Library(AppStreamer)</b>를 이용해 Local 방식(사내망 IP·시그널링 포트)으로 React 웹 클라이언트를 Omniverse Kit 앱에 직접 연결하는 스트리밍 컴포넌트와 메시지 프로토콜 구현</li>
+      <li><b>1920×1080 @ 60FPS</b> 스트리밍, 최대 재연결 20회, 인증(authenticate) 활성화</li>
+      <li>상단 Header · 중앙 3D 스트리밍 뷰(OmniverseStream) · 하단 공정관리 영역(GanttChart + CalendarWidget)으로 구성된 대시보드형 레이아웃</li>
+      <li>공정 실적(Actual) / 계획(Planned) / 병합(Merged) 세 가지 보기 모드와 Compare(비교) 토글을 지원하는 간트 차트 (238개 공정 태스크, 2·3차 계층)</li>
     </ul>
-    <div class="diagram-box">
+    <div class="diagram-box img-box">
       <div class="diagram-label">Class Diagram</div>
-      <pre class="mermaid">
-classDiagram
-  class StreamViewport {
-    +render(stream)
-    +captureInput()
-  }
-  class AppStreamConnector {
-    +connect(config)
-    +sendMessage(json)
-    +onCustomEvent(cb)
-  }
-  class StreamMessageBridge {
-    +dispatch(event)
-    +route(type, payload)
-  }
-  class SceneLoadController {
-    +requestLoad(url)
-    +onLoaded(result)
-  }
-  class ObjectSelectionController {
-    +select(primPath)
-    +onSelectionSync(result)
-  }
-  StreamViewport --> AppStreamConnector : connect / render
-  AppStreamConnector <--> StreamMessageBridge : dispatch / sendMessage
-  StreamMessageBridge --> SceneLoadController : route(openStageRequest)
-  StreamMessageBridge --> ObjectSelectionController : route(selection event)
-      </pre>
+      <img src="../assets/img/omniverse_diagram_stream.png" alt="App, OmniverseStream, GanttChart, CalendarWidget, Header 클래스 다이어그램">
     </div>
     <div class="insight-box">
-      웹 UI에서 오브젝트를 클릭하면 선택 정보가 Kit 앱으로 전달되어 3D 씬 내 오브젝트가 하이라이트되고,
-      반대로 Kit 앱의 상태 변경도 웹 클라이언트에 반영되는 <b>양방향 동기화</b> 구조입니다.
+      CalendarWidget에서 날짜를 선택하면 <code>App.handleDateSelected</code>가 <code>{ event_type: "disableprims", payload: { date, compare } }</code> 형태의 JSON 메시지를 만들어
+      <code>OmniverseStream.sendMessage</code>(= <code>AppStreamer.sendMessage</code>)로 Kit 서버에 전달합니다. 본인은 OmniverseStream의 WebRTC 연결·상태 관리 및 App의 메시지 조립·전송 로직을 구현했으며,
+      GanttChart/CalendarWidget/Header 등 UI 컴포넌트의 디자인·레이아웃은 팀 내 다른 프로그래머가 구현했습니다.
     </div>
   </div>
 
   <div class="contrib">
     <div class="contrib-num">2</div>
     <h3>OpenUSD 기반 데이터 파이프라인 개발</h3>
-    <p class="why"><b>개발 의도.</b> FBX/OBJ 등 외부에서 제작된 3D 에셋을 Omniverse에서 바로 활용하려면 OpenUSD 포맷 변환이 필요합니다.
-    수작업 변환 없이 일관된 파이프라인으로 USD Stage에 편입시켜 곧바로 협업/스트리밍 시스템에서 사용할 수 있도록 했습니다.</p>
+    <p class="why"><b>개발 의도.</b> 공정관리 시스템에서 산출되는 CSV 형태의 공정 실적/계획 데이터(태스크명, 계획·실제 시작/종료일, 진행률 등)를 USD Stage 내 3D 구조물 Prim과 매칭시켜,
+    임의의 날짜를 기준으로 "그 시점까지 실제/계획대로 시공된 구조물"을 3D로 표현하는 4D BIM 데이터 파이프라인이 필요했습니다.</p>
     <ul class="bullets">
-      <li><b>AssetImporter</b> — 외부 포맷 파일 로드 및 파싱 진입점</li>
-      <li><b>USDConverter</b> — 지오메트리·머티리얼·트랜스폼을 USD Prim/Attribute로 변환 (<code>pxr.Usd</code>, <code>UsdGeom</code>)</li>
-      <li><b>StageWriter</b> — 변환 결과를 <code>.usd</code>/<code>.usda</code> Stage 파일로 저장/게시</li>
+      <li><b>CSVReader</b>가 pandas로 공정 CSV를 로드해 Planned/Actual Start·End Date 컬럼을 datetime으로 파싱</li>
+      <li><b>PrimVisibilityController</b>가 USD Stage를 <code>/World</code> 하위 Level1→Level2까지 순회(Traverse)하며 Prim을 수집</li>
+      <li>Prim 경로에서 정규식으로 Task ID를 추출해 CSV의 Task Name과 <code>pandas merge</code>로 매칭</li>
+      <li>선택된 날짜가 각 태스크의 계획/실제 구간에 포함되는지 판정해 Prim에 <b>Planned / Actual / NotExist</b> 타입을 부여</li>
     </ul>
-    <p style="color:var(--text-dim); font-size:0.93rem;">변환된 에셋은 별도 가공 없이 Omniverse Kit 앱과 웹 스트리밍 뷰어에서 바로 로드해 확인할 수 있었습니다.</p>
+    <div class="diagram-box img-box">
+      <div class="diagram-label">Class Diagram</div>
+      <img src="../assets/img/omniverse_diagram_usd.png" alt="CSVReader, PrimVisibilityController, MaterialBindingMgr, MaterialOpacityMgr 클래스 다이어그램">
+    </div>
+    <div class="insight-box">
+      <code>_add_prims_type()</code>에서 각 태스크의 계획/실제 시작·종료일과 선택된 날짜를 비교해 Planned/Actual/완료 여부를 판정하고, Prim 이름 기반 정규식 매칭으로 CSV 로우와 USD Prim을 1:1로 연결합니다.
+      결과로 만들어진 Actual/Planned/NotExist Prim 리스트는 <code>Sdf.ChangeBlock</code>과 <b>2,000개 단위 비동기 배치 처리</b>(<code>apply_visibility_and_strength_async</code>)로 갱신되어,
+      다수의 Prim이 존재하는 대규모 건설 씬에서도 끊김 없이 4D 시뮬레이션이 동작하도록 구현했습니다.
+    </div>
   </div>
 
   <div class="contrib">
     <div class="contrib-num">3</div>
     <h3>Omniverse 확장 프로그램(Extension) 개발 및 환경 구축</h3>
-    <p class="why"><b>개발 의도.</b> 웹 클라이언트가 보내는 커스텀 스트리밍 메시지를 Kit 앱 내부에서 실제로 처리할 로직이 필요했습니다.
-    Kit 앱에 탑재되는 자체 Extension을 개발하고, 정상 동작하는 실행 환경을 구축했습니다.</p>
+    <p class="why"><b>개발 의도.</b> 웹 클라이언트가 보낸 날짜/비교모드 메시지를 Kit 앱 내부에서 실제로 처리해 3D 씬에 반영할 Extension이 필요했습니다.
+    NVIDIA <b>kit-app-template</b>의 <code>usd_viewer.messaging</code> 템플릿을 베이스로 자체 4D BIM 시각화 로직을 확장 구현했습니다.</p>
     <ul class="bullets">
-      <li><b>omni.ext</b> 프레임워크 위에 커스텀 Extension 구현 — 웹 클라이언트의 <code>event_type/payload</code> 메시지 수신</li>
-      <li><b>StreamMessageExtension → MessageDispatcher → SceneLoadHandler / SelectionSyncHandler</b> 구조로 라우팅 후 Kit 앱 API(Stage 열기, Selection 변경) 호출</li>
-      <li>처리 결과를 <code>~Result</code> / <code>~Confirmation</code> 메시지로 웹 클라이언트에 응답, Extension 매니페스트 및 로컬 개발 환경 구축</li>
+      <li>Extension(<code>omni.ext.IExt</code>)이 시작 시 LoadingManager/StageManager를 생성하고, StageManager가 carb 메시지버스에 커스텀 이벤트 핸들러를 등록해 웹 클라이언트 요청을 라우팅</li>
+      <li>StageManager가 <code>getChildrenRequest</code>, <code>selectPrimsRequest</code>, <code>makePrimsPickable</code>, <code>resetStage</code>, <code>movePrimsRequest</code>, <code>disableprims</code> 등 인커밍 이벤트를 각각의 핸들러로 등록</li>
+      <li><code>disableprims</code> 이벤트 수신 시 PrimVisibilityController(2번 항목)를 호출해 해당 날짜 기준으로 3D 씬을 갱신</li>
+      <li>카메라 이동/비행 속도 조정, Prim 선택·피킹 제어, 카메라 리셋 등 부가 상호작용 이벤트도 함께 처리</li>
     </ul>
+    <div class="diagram-box img-box">
+      <div class="diagram-label">Class Diagram</div>
+      <img src="../assets/img/omniverse_diagram_extension.png" alt="Extension, StageManager, PrimVisibilityController, MaterialBindingMgr/MaterialOpacityMgr 클래스 다이어그램">
+    </div>
+    <div class="insight-box">
+      <code>StageManager._on_disable_prims</code>가 이벤트 payload의 date/compare를 꺼내 PrimVisibilityController에 전달하면, Actual 구간 Prim은 항상 표시되고
+      Planned 구간 Prim은 Compare 모드에 따라 표시/숨김되거나 머티리얼 바인딩 강도(<code>strongerThanDescendants</code> / <code>weakerThanDescendants</code>)가 전환되어
+      계획 대비 실적을 시각적으로 구분해 보여주는 <b>비교 시각화</b>를 구현했습니다. 이 외에도 웹 클라이언트–Kit 앱 간 다양한 상호작용 이벤트를 처리하는 메시징 Extension과
+      kit-app-template 기반 빌드/개발 환경을 함께 구축했습니다.
+    </div>
   </div>
 </main>
 
@@ -141,7 +136,6 @@ classDiagram
   <div class="wrap">&copy; 2026 이수현 (Lee Suhyeon). All rights reserved.</div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 <script src="../assets/js/main.js"></script>
 </body>
 </html>

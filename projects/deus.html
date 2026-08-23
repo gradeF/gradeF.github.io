@@ -37,9 +37,9 @@
     <a href="https://youtu.be/gUf8SdJBZFc" target="_blank" rel="noopener" class="badge-video">▶ 영상 보기</a>
   </div>
   <div class="doc-actions">
-    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.pdf" download>
+    <a class="btn btn-ghost btn-sm" href="../assets/이수현_포트폴리오.docx" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
-      포트폴리오 PDF 다운로드
+      포트폴리오 다운로드
     </a>
     <button class="btn btn-ghost btn-sm" id="printPdfBtn" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
@@ -50,8 +50,8 @@
 
 <main class="project-body wrap">
   <div class="pd-hero-img">
-    <img src="../assets/img/deus_hero.png" alt="DEUS EX MACHINA 게임 내 상호작용 시스템 스크린샷">
-    <div class="pd-hero-caption">상호작용 시스템이 작동 중인 게임 화면</div>
+    <img src="../assets/img/deus_hero.png" alt="DEUS EX MACHINA 게임 플레이 스크린샷">
+    <div class="pd-hero-caption">인형 진영 플레이어 시점의 게임 화면</div>
   </div>
 
   <div class="pd-meta-grid">
@@ -75,6 +75,10 @@
       <li><b>RandomGenerator&lt;T&gt;</b> — 무작위 리스트를 만들어 오브젝트를 뽑아주는 제네릭 클래스</li>
       <li><b>Item / ItemBox</b> — 아이템을 생성/저장/제거하는 클래스, <b>ExorcistItemBox</b> / <b>DollItemBox</b>가 진영별로 상속</li>
     </ul>
+    <div class="diagram-box img-box">
+      <div class="diagram-label">Class Diagram</div>
+      <img src="../assets/img/deus_diagram_randombox.png" alt="RandomGenerator, Item, ItemBox, ExorcistItemBox, DollItemBox 클래스 다이어그램">
+    </div>
     <div class="code-box">
       <div class="code-title"><span>RandomGenerator.cs</span><span>C#</span></div>
       <pre><code>public class RandomGenerator&lt;T&gt;
@@ -125,6 +129,20 @@
       <li>상호작용이 없는 UI는 <b>Raycast Target을 비활성화</b>해 불필요한 히트테스트 제거</li>
       <li>Canvas의 <code>Render Camera</code>를 비워두면 Unity가 자동으로 채워 리소스가 낭비되므로, <b>RenderMode를 Screen Space – Overlay</b>로 명시적으로 고정</li>
     </ul>
+    <div class="img-row">
+      <div class="shot">
+        <img src="../assets/img/deus_raycast_off.png" alt="상호작용이 없는 UI의 Raycast Target 비활성화 설정">
+        <div class="shot-caption">상호작용이 없는 UI일 경우</div>
+      </div>
+      <div class="shot">
+        <img src="../assets/img/deus_raycast_on.png" alt="상호작용이 있는 UI의 Raycast Target 활성화 설정">
+        <div class="shot-caption">상호작용이 있는 UI일 경우</div>
+      </div>
+    </div>
+    <div class="diagram-box img-box">
+      <div class="diagram-label">Canvas 카메라 설정</div>
+      <img src="../assets/img/deus_canvas_overlay.png" alt="Canvas RenderMode를 Screen Space - Overlay로 설정한 화면">
+    </div>
   </div>
 
   <div class="contrib">
@@ -136,6 +154,34 @@
       <li><b>Interactor</b>가 <b>IInteractor</b>를 찾으면 <code>TryInteract()</code> 호출</li>
       <li><b>InteractionPromptUI</b>가 상호작용 가능 시 UI와 외곽선을 표시해 플레이어에게 알림 (진행 중 이펙트/UI, 종료·불가 시 표시 해제)</li>
     </ul>
+    <div class="img-row">
+      <div class="shot">
+        <img src="../assets/img/deus_interactor.png" alt="플레이어 앞에 존재하는 Interactor 범위 표시">
+        <div class="shot-caption">플레이어 앞에 존재하는 Interactor</div>
+      </div>
+      <div class="shot">
+        <img src="../assets/img/deus_collider.png" alt="오브젝트 근처에 존재하는 Collider 범위 표시">
+        <div class="shot-caption">오브젝트 근처에 존재하는 Collider</div>
+      </div>
+    </div>
+    <div class="img-row">
+      <div class="shot">
+        <img src="../assets/img/deus_interact_possible.png" alt="상호작용이 가능한 오브젝트의 외곽선 UI">
+        <div class="shot-caption">상호작용이 가능한 오브젝트의 모습</div>
+      </div>
+      <div class="shot">
+        <img src="../assets/img/deus_interact_running.png" alt="상호작용 시스템이 작동 중인 게임 화면">
+        <div class="shot-caption">상호작용 시스템을 작동 중인 모습</div>
+      </div>
+      <div class="shot">
+        <img src="../assets/img/deus_interact_unavailable.png" alt="상호작용이 불가능할 때 UI가 표시되지 않는 화면">
+        <div class="shot-caption">상호작용 시스템을 작동할 수 없을 때의 모습</div>
+      </div>
+    </div>
+    <div class="diagram-box img-box">
+      <div class="diagram-label">Class Diagram</div>
+      <img src="../assets/img/deus_diagram_interactor.png" alt="Interactor, IInteractable, InteractionPromptUI 클래스 다이어그램">
+    </div>
   </div>
 
   <div class="contrib">
@@ -147,6 +193,10 @@
       <li><b>저장 방식</b> — Volatile(데이터 유지) / Non-Volatile(데이터 미유지)</li>
       <li><b>Cast / CastFuncSet / CastingSystem</b> 구조로 타입별 저장 방식과 실행 함수 조합을 분리</li>
     </ul>
+    <div class="diagram-box img-box">
+      <div class="diagram-label">Class Diagram</div>
+      <img src="../assets/img/deus_diagram_casting.png" alt="CastingSystem, Cast, CastFuncSet 클래스 다이어그램">
+    </div>
   </div>
 </main>
 
